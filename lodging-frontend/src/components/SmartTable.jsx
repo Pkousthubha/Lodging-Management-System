@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useLayoutEffect,
   useRef,
-} from "react";      s
+} from "react";     
 
 import "../styles/SmartTable.css";
 
