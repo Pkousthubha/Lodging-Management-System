@@ -1,0 +1,82 @@
+/* ===== LUXURY DASHBOARD CARDS ===== */
+
+.dashboard-hero-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .dashboard-hero-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-hero-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.metric-card {
+  border-radius: 1.1rem;
+  padding: 1rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.55);
+  color: #0f172a;
+  background-image: linear-gradient(
+    135deg,
+    #f9fafb 0%,
+    #e0f2fe 40%,
+    #dbeafe 100%
+  );
+}
+
+[data-theme="dark"] .metric-card {
+  color: #f9fafb;
+  border-color: rgba(148, 163, 184, 0.35);
+  background-image: radial-gradient(
+      circle at top left,
+      rgba(251, 191, 36, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(59, 130, 246, 0.35),
+      transparent 55%
+    ),
+    linear-gradient(135deg, #020617 0%, #020617 100%);
+}
+
+.metric-card-label {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.metric-card-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 0.25rem;
+}
+
+.metric-card-sub {
+  font-size: 0.75rem;
+  opacity: 0.88;
+  margin-top: 0.2rem;
+}
+
+.metric-card-trend {
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 0.4rem;
+}
+
+.metric-card-trend.positive {
+  color: #16a34a;
+}
+
+.metric-card-trend.negative {
+  color: #dc2626;
+}

@@ -1,0 +1,198 @@
+/* ---- SmartTable layout ---- */
+
+.smart-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* important when parent is flex */
+}
+
+/* the inner .table-responsive comes from SmartTable */
+.smart-table-wrapper .table-responsive {
+  /* adjust height as you like or remove if not needed */
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+/* Make sure dropdowns can overflow cells */
+.smart-table-wrapper td,
+.smart-table-wrapper th {
+  overflow: visible !important;
+}
+
+/* Sticky header (vertical freeze) */
+.st-sticky-header th {
+  position: sticky;
+  top: 0;
+  z-index: 12;
+  background: #f9fafb;
+}
+
+/* Sortable header look */
+.st-header-sortable .st-header-text-sortable {
+  font-weight: 600;
+}
+
+.st-header-sortable:hover .st-header-text-sortable {
+  text-decoration: underline;
+}
+
+/* Filter button + popup */
+.st-filter-btn {
+  border: none;
+  color: #64748b;
+}
+
+.st-filter-btn.active {
+  color: #2563eb;
+}
+
+.st-filter-popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 30;
+  margin-top: 6px;
+}
+
+.st-filter-popup-inner {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.9rem 0.7rem;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  min-width: 260px;
+}
+
+.st-filter-popup-arrow {
+  position: absolute;
+  top: -6px;
+  left: 18px;
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-left: 1px solid rgba(148, 163, 184, 0.5);
+  border-top: 1px solid rgba(148, 163, 184, 0.5);
+  transform: rotate(45deg);
+}
+
+/* inventory-style look + borders */
+
+.smart-table-wrapper table {
+  border: 1px solid #d0d7e2;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* header background similar to inventory */
+.smart-table-wrapper thead.st-sticky-header,
+.smart-table-wrapper thead {
+  background: #0f172a;
+  color: #f9fafb;
+}
+
+.smart-table-wrapper thead th {
+  border-bottom: 1px solid #1e293b;
+  border-right: 1px solid #1e293b;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.smart-table-wrapper tbody td {
+  border-top: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+}
+
+/* left-most border */
+.smart-table-wrapper table tr td:first-child,
+.smart-table-wrapper table tr th:first-child {
+  border-left: 1px solid #d0d7e2;
+}
+
+/* actions cell + icon buttons */
+.st-actions-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  position: relative;
+}
+
+.st-icon-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  padding: 0;
+  cursor: pointer;
+}
+
+.st-icon-btn:hover {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.st-icon-edit {
+  color: #0f766e;
+}
+
+.st-icon-toggle {
+  color: #334155;
+}
+
+.st-icon-more {
+  color: #6b7280;
+}
+
+.st-icon-more.active {
+  background: #e0f2fe;
+  border-color: #38bdf8;
+}
+
+/* ---- Actions dropdown (3-dots) ---- */
+
+/* Cell wrapper for actions column */
+.st-actions-dropdown {
+  position: relative;          /* create positioning context for the menu */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Base menu style – floating overlay */
+.st-actions-menu {
+  position: absolute;
+  top: calc(100% + 4px);       /* just below the 3-dots button */
+  right: 0;
+  min-width: 160px;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  padding: 0.25rem 0;
+  font-size: 0.8rem;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+  z-index: 9999;               /* higher than sticky columns/header */
+  display: none;               /* hidden by default */
+}
+
+/* When React adds .show, just display it */
+.st-actions-menu.show {
+  position: relative;
+}
+
+.st-actions-menu .dropdown-item {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+}
+
+.st-actions-menu .dropdown-item:hover {
+  background: #eff6ff;
+}
+
+/* Ensure any Bootstrap .dropdown-menu also floats above */
+.dropdown-menu {
+  z-index: 9999 !important;
+}

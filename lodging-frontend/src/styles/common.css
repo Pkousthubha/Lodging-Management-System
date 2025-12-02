@@ -1,0 +1,41 @@
+/* ====== GLOBAL VALIDATION STYLES ====== */
+
+/* Red border for invalid inputs, selects, and textareas */
+.is-invalid,
+.form-control.is-invalid,
+select.is-invalid,
+textarea.is-invalid {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.15rem rgba(220, 53, 69, 0.25) !important;
+}
+
+/* Optional: reset hover/focus behavior so red border stays consistent */
+.is-invalid:focus,
+.form-control.is-invalid:focus {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+/* Error message below field */
+.invalid-feedback {
+  display: block;
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+/* Ensure Bootstrap invalid styles stay consistent */
+.was-validated .form-control:invalid,
+.was-validated .form-select:invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.15rem rgba(220, 53, 69, 0.25);
+}
+
+.floating-group .invalid-feedback,
+.password-wrapper .invalid-feedback {
+  text-align: left !important;
+  width: 100%;
+  margin-left: 4px; /* slight indent (optional) */
+  padding-left: 2px;
+  align-self: flex-start !important;
+}
